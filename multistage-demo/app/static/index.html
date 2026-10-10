@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Multi-Stage Docker Demo</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <main>
+    <h1>Multi-Stage Docker Demo</h1>
+    <p>This static page is served by Flask + Gunicorn from a slim runtime image.</p>
+    <pre id="info">loading...</pre>
+  </main>
+  <script>
+    fetch("/api/info")
+      .then(r => r.json())
+      .then(d => document.getElementById("info").textContent = JSON.stringify(d, null, 2));
+  </script>
+</body>
+</html>
